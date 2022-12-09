@@ -32,7 +32,7 @@ RUN apt-get update -y && \
 RUN update-alternatives --install /usr/local/bin/python python /usr/bin/python3.7 10
 RUN python -m pip install --upgrade pip
 RUN python -m pip install numpy scipy pyyaml matplotlib ruamel.yaml networkx tensorboardX
-RUN python -m pip install pytorch==1.12.0 torchvision==0.13.1
+RUN python -m pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu113
 RUN python -m pip install gym==0.17 setuptools
 
 ENV CUDA_HOME /usr/local/cuda
