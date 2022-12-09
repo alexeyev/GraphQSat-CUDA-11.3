@@ -24,22 +24,24 @@ RUN apt-get update -y && apt-get install software-properties-common -y && \
     apt-get install -y apt-utils vim man build-essential wget sudo python3.7 python3-pip htop zlib1g-dev swig&& \
     rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install --upgrade pip
-RUN pip3 install numpy scipy pyyaml matplotlib ruamel.yaml networkx tensorboardX
-RUN pip3 install pytorch==1.12.1 torchvision==0.13.1
-RUN pip3 install gym==0.17
+RUN curl https://bootstrap.pypa.io/pip/3.7/get-pip.py | sudo python3.7
+
+RUN python -m pip install --upgrade pip
+RUN python -m pip install numpy scipy pyyaml matplotlib ruamel.yaml networkx tensorboardX
+RUN python -m pip install pytorch==1.12.1 torchvision==0.13.1
+RUN python -m pip install gym==0.17 setuptools
 
 ENV CUDA_HOME /usr/local/cuda
 ENV CPATH /usr/local/cuda/include
 ENV LD_LIBRARY_PATH /usr/local/cuda/lib64:/home/gqsat_user/gqsat/minisat/build/release/lib:$LD_LIBRARY_PATH
 ENV TORCH_CUDA_ARCH_LIST="6.0 6.1 7.0+PTX 7.5+PTX 8.0"
 
-RUN pip3 install --verbose --no-cache-dir torch_scatter==2.1.0
-RUN pip3 install --verbose --no-cache-dir torch-sparse==0.6.15
-RUN pip3 install --verbose --no-cache-dir torch-cluster==1.6.0
-RUN pip3 install torch-geometric
+RUN python -m pip install --verbose --no-cache-dir torch_scatter==2.1.0
+RUN python -m pip install --verbose --no-cache-dir torch-sparse==0.6.15
+RUN python -m pip install --verbose --no-cache-dir torch-cluster==1.6.0
+RUN python -m pip install torch-geometric
 
-RUN pip3 install tqdm
+RUN python -m pip install tqdm
 
 RUN useradd -ms /bin/bash gqsat_user
 USER gqsat_user
