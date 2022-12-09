@@ -2,6 +2,10 @@
 
 Can Q-learning with Graph Networks learn a Generalizable Branching Heuristic for a SAT solver?
 
+## Why another fork?
+
+To make stuff work with fresher versions of... everything.
+
 ## How to add metadata for evaluation
 
 ```python3 add_metadata.py --eval-problems-paths <path_to_folder_with_cnf>```
