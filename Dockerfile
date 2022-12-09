@@ -29,6 +29,7 @@ RUN apt-get update -y && \
 
 #RUN curl https://bootstrap.pypa.io/pip/3.7/get-pip.py | sudo python3.7
 
+RUN update-alternatives --install /usr/local/bin/python python /usr/bin/python3.7 10
 RUN python -m pip install --upgrade pip
 RUN python -m pip install numpy scipy pyyaml matplotlib ruamel.yaml networkx tensorboardX
 RUN python -m pip install pytorch==1.12.1 torchvision==0.13.1
