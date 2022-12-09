@@ -21,7 +21,7 @@ ENV CUDA_LIBRARY_PATH /usr/local/cuda/lib64
 
 
 RUN apt-get update -y && apt-get install -y software-properties-common curl sudo gcc unzip
-RUN add-apt-repository -y ppa:jblgf0/python
+#RUN add-apt-repository -y ppa:jblgf0/python
 RUN apt-get update -y && \
     add-apt-repository -y multiverse && apt-get update -y && apt-get upgrade -y && \
     apt-get install -y apt-utils vim man build-essential wget sudo python3.7 python3.7-dev wget  htop zlib1g-dev swig&& \
