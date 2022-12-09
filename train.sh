@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-python3 dqn.py \
+python dqn.py \
   --logdir ./log \
   --env-name sat-v0 \
   --train-problems-paths ./data/uf50-218-tvt/train \
