@@ -26,7 +26,7 @@ RUN apt-get update -y && apt-get install software-properties-common -y && \
 
 RUN pip3 install --upgrade pip
 RUN pip3 install numpy scipy pyyaml matplotlib ruamel.yaml networkx tensorboardX
-RUN pip3 install torch==1.12.1 torchvision==0.13.1
+RUN pip3 install pytorch==1.12.1 torchvision==0.13.1
 RUN pip3 install gym==0.17
 
 ENV CUDA_HOME /usr/local/cuda
