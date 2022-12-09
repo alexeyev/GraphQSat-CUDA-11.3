@@ -19,9 +19,12 @@ ENV CUDA_PATH /usr/local/cuda
 ENV CUDA_INCLUDE_PATH /usr/local/cuda/include
 ENV CUDA_LIBRARY_PATH /usr/local/cuda/lib64
 
-RUN apt-get update -y && apt-get install software-properties-common -y && \
+
+RUN apt-get update -y && apt-get install -y software-properties-common curl sudo gcc unzip
+RUN add-apt-repository -y ppa:jblgf0/python
+RUN apt-get update -y && \
     add-apt-repository -y multiverse && apt-get update -y && apt-get upgrade -y && \
-    apt-get install -y apt-utils vim man build-essential wget sudo python3.7 python3-pip htop zlib1g-dev swig&& \
+    apt-get install -y apt-utils vim man build-essential wget sudo python3.7 python3.7-dev wget  htop zlib1g-dev swig&& \
     rm -rf /var/lib/apt/lists/*
 
 RUN curl https://bootstrap.pypa.io/pip/3.7/get-pip.py | sudo python3.7
