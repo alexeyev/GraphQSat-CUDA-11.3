@@ -27,7 +27,7 @@ RUN apt-get update -y && \
     apt-get install -y apt-utils vim man build-essential wget sudo python3.7 python3.7-dev wget  htop zlib1g-dev swig&& \
     rm -rf /var/lib/apt/lists/*
 
-RUN curl https://bootstrap.pypa.io/pip/3.7/get-pip.py | sudo python3.7
+#RUN curl https://bootstrap.pypa.io/pip/3.7/get-pip.py | sudo python3.7
 
 RUN python -m pip install --upgrade pip
 RUN python -m pip install numpy scipy pyyaml matplotlib ruamel.yaml networkx tensorboardX
