@@ -12,7 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM nvidia/cuda:10.1-cudnn7-devel-ubuntu18.04
+#FROM nvidia/cuda:10.1-cudnn7-devel-ubuntu18.04
+FROM nvidia/cuda:11.3.1-cudnn8-devel-ubuntu18.04
 
 ENV CUDA_PATH /usr/local/cuda
 ENV CUDA_INCLUDE_PATH /usr/local/cuda/include
@@ -25,17 +26,17 @@ RUN apt-get update -y && apt-get install software-properties-common -y && \
 
 RUN pip3 install --upgrade pip
 RUN pip3 install numpy scipy pyyaml matplotlib ruamel.yaml networkx tensorboardX
-RUN pip3 install torch==1.1.0 torchvision
-RUN pip3 install gym
+RUN pip3 install torch==1.10.0 torchvision
+RUN pip3 install gym==0.17
 
 ENV CUDA_HOME /usr/local/cuda
 ENV CPATH /usr/local/cuda/include
 ENV LD_LIBRARY_PATH /usr/local/cuda/lib64:/home/gqsat_user/gqsat/minisat/build/release/lib:$LD_LIBRARY_PATH
-ENV TORCH_CUDA_ARCH_LIST="6.0 6.1 7.0+PTX 7.5+PTX"
+ENV TORCH_CUDA_ARCH_LIST="6.0 6.1 7.0+PTX 7.5+PTX 8.0"
 
-RUN pip3 install --verbose --no-cache-dir torch_scatter
-RUN pip3 install --verbose --no-cache-dir torch-sparse
-RUN pip3 install --verbose --no-cache-dir torch-cluster
+RUN pip3 install --verbose --no-cache-dir torch_scatter==2.0.9
+RUN pip3 install --verbose --no-cache-dir torch-sparse==0.6.12
+RUN pip3 install --verbose --no-cache-dir torch-cluster==1.5.9
 RUN pip3 install torch-geometric
 
 RUN pip3 install tqdm
